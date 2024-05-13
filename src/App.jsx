@@ -1,21 +1,22 @@
-import React, { useState } from "react";
-import Todos from "./components/Todos";
+import React, { useState } from 'react';
+import Todos from './components/Todos';
+import TodoForm from './components/Todoform';
 
 function App() {
   const [todos, setTodos] = useState([
     {
       id: 1,
-      title: "Finish Progate React Course",
+      title: 'Finish Progate React Course',
       completed: false,
     },
     {
       id: 2,
-      title: "Have lunch with Guru Domba",
+      title: 'Have lunch with Guru Domba',
       completed: false,
     },
     {
       id: 3,
-      title: "Study React with Ninja Ken",
+      title: 'Study React with Ninja Ken',
       completed: false,
     },
   ]);
@@ -32,11 +33,26 @@ function App() {
   const deleteTodo = (todoId) => {
     setTodos(todos.filter((todo) => todo.id !== todoId));
   };
+  const addTodo = (todoTitle) => {
+    if (todoTitle === '') {
+      return;
+    }
+
+    const newTodo = {
+      id: todos.length + 1,
+      title: todoTitle,
+      completed: false,
+    };
+
+    const updatedTodos = todos.concat(newTodo);
+    setTodos(updatedTodos);
+  };
 
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>My Todo List</h1>
-      {/* Teruskan function toggleCompleted ke component Todos */}
+      {/* Teruskan function addTodo sebagai props */}
+      <TodoForm addTodo={addTodo} />
       <Todos
         todos={todos}
         toggleCompleted={toggleCompleted}
@@ -48,11 +64,11 @@ function App() {
 
 const styles = {
   container: {
-    textAlign: "center",
-    padding: "12px",
+    textAlign: 'center',
+    padding: '12px',
   },
   title: {
-    fontSize: "36px",
+    fontSize: '36px',
   },
 };
 
