@@ -15,9 +15,6 @@ const TodoForm = ({ addTodo }) => {
     setTitle(event.target.value);
   };
 
-  // Periksa apakah function "handleChangeTitle" berfungsi
-  console.log(title);
-
   return (
     <div style={styles.container}>
       <form
