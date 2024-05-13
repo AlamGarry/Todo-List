@@ -1,16 +1,22 @@
 import React from "react";
 import TodoItem from "./Todoitem";
 
-const Todos = ({ todos }) => {
+const Todos = ({ todos, toggleCompleted }) => {
   return (
     <div style={styles.container}>
       {todos.map((todo) => {
-        return <TodoItem key={todo.id} todo={todo} />;
+        return (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            // Teruskan function toggleCompleted ke component TodoItem
+            toggleCompleted={toggleCompleted}
+          />
+        );
       })}
     </div>
   );
 };
-
 const styles = {
   container: {
     width: "40%",
