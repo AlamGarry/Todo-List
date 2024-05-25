@@ -12,5 +12,5 @@ pnpm install to install all dependencies for a project.
 
 ### `pnpm dev`
 
-Runs the app in the development mode.\
+Run the app in the development mode.\
 Open [http://localhost:5173/](http://localhost:5173/) to view it in your browser.
